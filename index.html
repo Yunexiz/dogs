@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random dogs</title>
+  <link rel="icon" type="image/x-icon" href="/10.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Press a button get a dog." />
+  <meta property="og:description" content="The dog is a developer, the dog is always watching." />
+  <meta property="og:image" content="/10.png" />
+  <meta property="og:url" content="https://dog.is-a.dev" />
+  <style>
+  body {
+    background-image: url('sisi.png');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    max-width: 100%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+  }
+    
+  #button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 10px;
+    height: 80%;
+    width: 100%;
+  }
+  
+  button {
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <div id="instructions">
+    <h2>Instructions</h2>
+    <p>- It's simple, just press 1 of the buttons to load an image of a dog. <br>- Press the back button on your browser to return and click and see a new image (Or the same one).<br>- Refresh the page to load new images.</p>
+  <div>
+  <div id="button-container"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
