@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://dog.is-a.dev" />
     <style>
       body {
-        background-image: url('sisi.png');
+        background-image: url('dog.jpg');
         background-size: cover;
         font-family: Arial;
         justify-content: center;
@@ -52,7 +52,7 @@
         }
       }
 
-      #instructions {
+      #container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -67,6 +67,12 @@
         padding: 10px;
       }
 
+      #instructions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
       #button-container {
         display: flex;
         flex-direction: row;
@@ -79,6 +85,7 @@
       }
 
       button {
+        display: inline-block;
         background: linear-gradient(
           to right,
           #000 10%,
@@ -108,15 +115,18 @@
     </style>
   </head>
   <body>
-    <div id="instructions">
-      <span>Instructions</span>
-      <ol>
-        <li>It's simple, press a button, load a dog.</li>
-        <li>Going back will keep the images the same.</li>
-        <li>Refreshing will load new dogs.</li>
-      </ol>
+    <div id="container">
+      <div id="instructions">
+        <span>Instructions</span>
+        <ol>
+          <li>It's simple, press a button, load a dog.</li>
+          <li>Going back will keep the images the same.</li>
+          <li>Refreshing will load new dogs.</li>
+        </ol>
+      </div>
+      <div id="button-container"></div>
     </div>
-    <div id="button-container"></div>
+
     <script>
       const apiUrl = "https://api.thedogapi.com/v1/images/search?limit=10";
       const buttonContainer = document.getElementById("button-container");

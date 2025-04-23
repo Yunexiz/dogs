@@ -12,7 +12,8 @@
         background-color: #000;
       }
 
-      #cat-image {
+      #image {
+        display: none;
         max-width: 100%;
         max-height: 100%;
         width: auto;
@@ -60,13 +61,14 @@
   </head>
   <body>
     <button onclick="history.back()">Back</button>
-    <img id="dog-image" src="" alt="Dog Image" />
+    <img id="image" src="" alt="Dog Image" />
     <script>
-      const imageElement = document.getElementById("dog-image");
+      const imageElement = document.getElementById("image");
 
       const urlParams = new URLSearchParams(window.location.search);
       const imageUrl = urlParams.get("url");
       imageElement.src = imageUrl;
+      imageElement.style.display = "block";
     </script>
   </body>
 </html>
