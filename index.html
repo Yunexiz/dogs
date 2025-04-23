@@ -2,11 +2,14 @@
 <html>
   <head>
     <title>Random dogs</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Press a button get a dog." />
-    <meta property="og:description" content="The dog is a developer, the dog is always watching." />
+    <meta
+      property="og:description"
+      content="The dog is a developer, the dog is always watching."
+    />
     <meta property="og:image" content="/favicon.ico" />
     <meta property="og:url" content="https://dog.is-a.dev" />
     <style>
@@ -63,7 +66,7 @@
         margin: 10px;
         padding: 10px;
       }
-        
+
       #button-container {
         display: flex;
         flex-direction: row;
@@ -112,8 +115,40 @@
         <li>Going back will keep the images the same.</li>
         <li>Refreshing will load new dogs.</li>
       </ol>
-    <div>
+    </div>
     <div id="button-container"></div>
-    <script src="script.js"></script>
+    <script>
+      const apiUrl = "https://api.thedogapi.com/v1/images/search?limit=10";
+      const buttonContainer = document.getElementById("button-container");
+
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach((dog, index) => {
+            const button = document.createElement("button");
+            const prefixes = [
+              "Dog",
+              "Puppy",
+              "Doge",
+              "Cute",
+              "Cutie",
+              "Paw",
+              "Woof",
+              "Bark",
+              "Slobber",
+            ];
+            const randomPrefix =
+              prefixes[Math.floor(Math.random() * prefixes.length)];
+            button.textContent = `${randomPrefix} ${index + 1}`;
+            button.addEventListener("click", () => {
+              window.location.href = `/display?url=${dog.url}`;
+            });
+            buttonContainer.appendChild(button);
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching dog images:", error);
+        });
+    </script>
   </body>
 </html>
